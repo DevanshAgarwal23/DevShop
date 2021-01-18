@@ -87,21 +87,7 @@ export default ProductScreen;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 
 
 
 
