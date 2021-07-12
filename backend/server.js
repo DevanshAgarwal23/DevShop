@@ -1,19 +1,16 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import colors from 'colors'
-import products from './data/products.js'
 import connectDB from './config/db.js'
 
 import productRoutes from './routes/productRoutes.js'
-
+import userRouters from './routes/userRoutes.js'
 
 dotenv.config()
 
-
-
-
 const app = express()
 
+app.use(express.json())
 
 
 app.get('/', (req,res) => {
@@ -21,7 +18,7 @@ app.get('/', (req,res) => {
 }) 
 
 app.use('/api/products', productRoutes)
-
+app.use('/api/users', userRouters)
 
 const PORT = process.env.PORT || 5000
 
