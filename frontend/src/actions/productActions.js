@@ -8,18 +8,18 @@ import {
 } from "../constants/productConstats";
 import axios from "axios";
 
-export const listProducts = () => async (dispach) => {
+export const listProducts = () => async (dispatch) => {
   try {
-    dispach({ type: PRODUCT_LIST_REQUEST });
+    dispatch({ type: PRODUCT_LIST_REQUEST });
 
     const { data } = await axios.get("/api/products");
 
-    dispach({
+    dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    dispach({
+    dispatch({
       type: PRODUCT_LIST_FAIL,
       payload:
         error.response && error.response.data.message
@@ -29,18 +29,18 @@ export const listProducts = () => async (dispach) => {
   }
 };
 
-export const listProductDetails = (id) => async (dispach) => {
+export const listProductDetails = (id) => async (dispatch) => {
   try {
-    dispach({ type: PRODUCT_DETAILs_REQUEST });
+    dispatch({ type: PRODUCT_DETAILs_REQUEST });
 
     const { data } = await axios.get(`/api/products/${id}`);
 
-    dispach({
+    dispatch({
       type: PRODUCT_DETAILs_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    dispach({
+    dispatch({
       type: PRODUCT_DETAILs_FAIL,
       payload:
         error.response && error.response.data.message
